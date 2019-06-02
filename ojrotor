@@ -1,0 +1,4 @@
+#!/bin/sh
+screen -dm  /usr/bin/rotctld -r /dev/ttyUSB3 -m1701
+python /home/bertrand/Dropbox/FG8OJ/Applications/ojrotor.py 
+pkill screen
