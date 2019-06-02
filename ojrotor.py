@@ -35,11 +35,10 @@ def lecture():
 		refreshc=0
 		refresh=1
 		rotord=rot(80-rotor)
-		rotorf=20
                 text1.config(text =str(rotor)+"°")
 		global direction
 		canvas.delete(direction)
-		direction=canvas.create_arc(26, 26, 173, 173,start=rotord, extent=rotorf,fill="green",style="pieslice",width=0)
+		direction=canvas.create_arc(26, 26, 173, 173,start=rotord, extent=rotor_width,fill="green",style="pieslice",width=0)
 		old_rotor=rotor
 	        fenetre.update()
 	if (new_rotor==rotor):
@@ -108,6 +107,7 @@ config.read(os.path.dirname(os.path.abspath(__file__))+"/ojrotor.cfg")
 rotor_offset=float(config.get("DEFAULT","rotor_offset") )
 rotctl_serveur=config.get("DEFAULT","rotctl_serveur")
 rotctl_port=int(config.get("DEFAULT","rotctl_port"))
+rotor_width=int(config.get("DEFAULT","rotor_width"))
 old_rotor=999
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = (rotctl_serveur,rotctl_port)
